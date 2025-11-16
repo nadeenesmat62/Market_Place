@@ -1,0 +1,46 @@
+// using Microsoft.AspNetCore.SignalR;
+
+// namespace ArtGallery.BiddingService.Hubs
+// {
+//     public class AuctionHub : Hub
+//     {
+//         public override async Task OnConnectedAsync()
+//         {
+//             var httpContext = Context.GetHttpContext();
+//             var artworkId = httpContext?.Request.Query["artworkId"].ToString();
+
+//             if (!string.IsNullOrEmpty(artworkId))
+//             {
+//                 await Groups.AddToGroupAsync(Context.ConnectionId, artworkId);
+//             }
+
+//             await base.OnConnectedAsync();
+//         }
+
+//         public async Task JoinArtworkGroup(string artworkId)
+//         {
+//             if (!string.IsNullOrEmpty(artworkId))
+//             {
+//                 await Groups.AddToGroupAsync(Context.ConnectionId, artworkId);
+//             }
+//         }
+
+//         public async Task LeaveArtworkGroup(string artworkId)
+//         {
+//             if (!string.IsNullOrEmpty(artworkId))
+//             {
+//                 await Groups.RemoveFromGroupAsync(Context.ConnectionId, artworkId);
+//             }
+//         }
+
+
+
+
+//         public async Task SendBid(Guid artworkId, Bid bid)
+//         {
+//             await Clients.Group(artworkId.ToString()).SendAsync("ReceiveBid", bid);
+//         }
+
+
+//     }
+// }
